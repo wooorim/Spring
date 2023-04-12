@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 인터페이스 BoardMapper를 구현하는 자식 xml -->
+<mapper namespace="edu.global.ex.mapper.EmpMapper"> <!-- 패키지명.인터페이스명 -->
+	<select id="getList" resultType="edu.global.ex.vo.EmpVO"> <!-- resultType는 interface에서의 함수 데이터타입과 맞춰준다. -->
+  		<![CDATA[
+  			select * from emp order by empno desc
+  		]]>
+	</select>
+	
+	<select id="read" resultType="edu.global.ex.vo.EmpVO"> <!-- 패키지명.클래스명 -->
+  		<![CDATA[
+  			select * from emp where empno = #{empno} 
+  		]]>
+		<!-- 파라미터 넘길 때는 #으로 -->
+	</select>
+	
+   
+</mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.global.ex.mapper.BoardMapper;
+import edu.global.ex.page.Criteria;
 import edu.global.ex.vo.BoardVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -77,5 +78,21 @@ public class BoardServiceImpl implements BoardService { // Impl = implement약�
 		mapper.updateShape(board); //댓글의 위치를 먼저 잡아준 후
 		mapper.insertReply(board); //댓글을 등록한다.
 	}
+
+	@Override
+	public int getTotal() {
+		log.info("getTotal()..");
+		
+		return mapper.getTotalCount();
+	}
+
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		log.info("getList(Criteria cri)..");
+		
+		return mapper.getListWithPaging(cri);
+	}
+	
+	
 
 }

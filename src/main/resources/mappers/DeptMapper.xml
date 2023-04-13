@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 인터페이스 BoardMapper를 구현하는 자식 xml -->
+<mapper namespace="edu.global.ex.mapper.DeptMapper"> <!-- 패키지명.인터페이스명 -->
+	<select id="getEmpDeptOneVOList" resultType="EmpDeptVO"> <!-- resultType는 interface에서의 함수 데이터타입과 맞춰준다. -->
+  		<![CDATA[
+  			 select * from emp,dept where emp.deptno = dept.deptno
+  		]]>
+	</select>
+	
+
+</mapper>

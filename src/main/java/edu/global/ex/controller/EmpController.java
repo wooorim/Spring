@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 //1.URL과 페이지 매핑 방법
 
+import edu.global.ex.page.Criteria;
+import edu.global.ex.page.PageVO;
 import edu.global.ex.service.EmpService;
 import edu.global.ex.vo.EmpVO;
 import lombok.RequiredArgsConstructor;
@@ -43,5 +45,28 @@ public class EmpController {
 		return "/emp/emp_info";
 	}
 	
+	@GetMapping("/emp_list2") 
+	public String emp_list2(Criteria cri, Model model) { 
+		log.info("emp_list2()..");
+		log.info("emp_list2() Criteria" + cri);
+
+		// 게시글 10개 가져오는 코드
+		model.addAttribute("emps", empService.getList(cri));
+
+		// 페이징을 위한 처리
+		int total = empService.getTotal();
+		log.info("total" + total);
+
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+
+		return "/emp/emp_list2";
+	}
 	
+	@GetMapping("/dept1") //URL창에 board로 치고들어가면 main.jsp출력 
+	public String dept1(Model model) {
+		log.info("dept1()..");
+		
+		System.out.println(empService.getEmpDeptOneVOList());
+		return "/emp/emp_list";
+	}
 }

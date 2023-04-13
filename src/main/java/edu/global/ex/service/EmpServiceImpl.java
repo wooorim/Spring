@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.global.ex.mapper.DeptMapper;
 import edu.global.ex.mapper.EmpMapper;
+import edu.global.ex.page.Criteria;
 import edu.global.ex.repository.EmpDAO;
+import edu.global.ex.vo.EmpDeptVO;
 import edu.global.ex.vo.EmpVO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +32,9 @@ public class EmpServiceImpl implements EmpService{
 	@Autowired
 	private final EmpMapper mapper;
 	
+	@Autowired
+	private final DeptMapper deptMapper;
+	
 	
 	public List<EmpVO> getList(){
 		log.info("getList()..");
@@ -40,6 +46,26 @@ public class EmpServiceImpl implements EmpService{
 		log.info("get()..");
 		
 		return mapper.read(empno);
+	}
+
+	@Override
+	public int getTotal() {
+		log.info("getTotal()..");
+		
+		return mapper.getTotalCount();
+	}
+
+	@Override
+	public List<EmpVO> getList(Criteria cri) {
+		log.info("getList(Criteria cri)..");
+		
+		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public List<EmpDeptVO> getEmpDeptOneVOList() {
+		log.info("getEmpDeptOneVOList()..");
+		return deptMapper.getEmpDeptOneVOList();
 	}
 	
 }

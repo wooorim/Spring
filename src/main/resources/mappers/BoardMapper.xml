@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 인터페이스 BoardMapper를 구현하는 자식 xml -->
 <mapper namespace="edu.global.ex.mapper.BoardMapper"> <!-- 패키지명.인터페이스명 -->
-	<select id="getList" resultType="edu.global.ex.vo.BoardVO"> <!-- resultType는 interface에서의 함수 데이터타입과 맞춰준다. -->
+	<!-- <select id="getList" resultType="edu.global.ex.vo.BoardVO"> resultType는 interface에서의 함수 데이터타입과 맞춰준다.
   		<![CDATA[
   			select * from mvc_board order by bgroup desc, bstep asc
   		]]>
-	</select>
+	</select> -->
 	<!-- My batis를 사용하면 Connection, Statement, ResultSet가 캡슐화되어있어서 선언안해도 기능이 
 		적용되어있다. -->
 

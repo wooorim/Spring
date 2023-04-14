@@ -9,6 +9,7 @@ import edu.global.ex.mapper.DeptMapper;
 import edu.global.ex.mapper.EmpMapper;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.repository.EmpDAO;
+import edu.global.ex.vo.DeptVO;
 import edu.global.ex.vo.EmpDeptVO;
 import edu.global.ex.vo.EmpVO;
 import lombok.AllArgsConstructor;
@@ -66,6 +67,12 @@ public class EmpServiceImpl implements EmpService{
 	public List<EmpDeptVO> getEmpDeptOneVOList() {
 		log.info("getEmpDeptOneVOList()..");
 		return deptMapper.getEmpDeptOneVOList();
+	}
+
+	@Override
+	public List<DeptVO> getEmpDeptList() {
+		
+		return deptMapper.getEmpDeptList();
 	}
 	
 }

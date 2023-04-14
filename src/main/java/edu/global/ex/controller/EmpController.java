@@ -67,6 +67,15 @@ public class EmpController {
 		log.info("dept1()..");
 		
 		System.out.println(empService.getEmpDeptOneVOList());
-		return "/emp/emp_list";
+		return "/emp/emp_list2";
+	}
+	
+	@GetMapping("/dept2") //URL창에 board로 치고들어가면 main.jsp출력 
+	public String dept2(Model model) {
+		log.info("dept2()..");
+		
+		System.out.println(empService.getEmpDeptList());
+		model.addAttribute("empDeptList", empService.getEmpDeptList());
+		return "/emp/empDept";
 	}
 }

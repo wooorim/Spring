@@ -20,6 +20,6 @@ public class DeptVO {
 	   private String dname; //부서이름
 	   private String loc; //지역
 	   
-	   List<EmpVO> empList; //1(Dpet) : N(Emp)  자바에서는 자식 리스트를 갖고 오는 쪽이 1, 자식 리스트가 N
+	   List<EmpVO> empList; //자바에서의 1(Dpet) : N(Emp)  자바에서는 자식 리스트를 갖는 쪽이 1, 자식 리스트가 N
 
 }

@@ -10,5 +10,27 @@
   		]]>
 	</select>
 	
-
+	<resultMap type="EmpVO" id="empMap"> <!-- id는 개발자 마음대로 지정 -->
+		<id property="empno" column="empno"/> <!-- property=자바의 필드 면수명 과 column=DB테이블의 실제 컬럼명 을 매핑시킨다. -->
+		<result property="ename" column="ename"/> <!-- 키에 해당되는 컬럼만 id태그, 그 외에는 result태그 (별 차이는 없다) -->
+		<result property="job" column="job"/>
+      	<result property="mgr" column="mgr"/>
+      	<result property="hireDate" column="hireDate"/>
+      	<result property="sal" column="sal"/>
+      	<result property="comm" column="comm"/>
+      	<result property="deptno" column="deptno"/>      
+	</resultMap>
+	
+	<resultMap type="DeptVO" id="deptMap">
+		<id property="deptno" column="deptno"/> <!-- 여기서 property는 set함수를 뜻한다 -->
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+		<collection property="empList" resultMap="empMap"/> <!-- List<EmpVO> 1:N표현 -->
+	</resultMap>
+	
+	<select id="getEmpDeptList" resultMap="deptMap"> <!-- JOIN테이블 불러오기. resultType아니다! -->
+  		<![CDATA[
+  			 select * from emp,dept where emp.deptno = dept.deptno order by dept.deptno asc
+  		]]>
+	</select>
 </mapper>

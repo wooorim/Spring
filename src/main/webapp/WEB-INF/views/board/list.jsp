@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<img src="servlet_2023.3.31/WebContent/images/shop/product10.jpg">
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<tr>
 			<td>번호</td>
